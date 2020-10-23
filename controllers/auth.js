@@ -64,17 +64,16 @@ const login= async( req, res = response) => {
         const token = await generarJWT( userDB.id);
         res.json({
             ok:true,
-            usuario:userDB,
+            user:userDB,
             token
         })
     }catch(error){
-
+        console.log(error);
+        return res.status(500).json({
+            ok: false,
+            msg: 'Contact the administration'
+        })
     }
-
-    return res.json({
-        ok:true,
-        msg:'login',
-    });
 }
 
 const renewToken = async(req, res = response) => {
@@ -84,8 +83,8 @@ const renewToken = async(req, res = response) => {
 
     res.json({
         ok:true,
-        token,
         user,
+        token
     });
 }
 

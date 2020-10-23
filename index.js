@@ -20,6 +20,7 @@ require('./sockets/socket');
 
 //Mis rutas 
 app.use('/api/login', require('./routes/auth'));
+app.use('/api/users', require('./routes/users'));
 
 // Path público
 const publicPath = path.resolve( __dirname, 'public' );
